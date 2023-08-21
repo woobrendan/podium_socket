@@ -1,0 +1,79 @@
+.results-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .podium_card {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    min-width: 450px;
+    display: flex;
+    flex-direction: column;
+    min-height: 375px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    span {
+      color: red;
+    }
+
+    .MuiButton-root {
+      max-width: 200px;
+      align-self: center;
+      margin-top: 10px;
+    }
+  }
+
+  .series-container {
+    margin-top: 20px;
+  }
+
+  .placement-container {
+    display: flex;
+    justify-content: space-around;
+    height: 250px;
+
+    .finishing-spot {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      font-weight: bold;
+    }
+
+    .finishing-drivers {
+      // height: 250px;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
+  }
+}
+
+.hard_charger_container,
+.fast-lap-container {
+  .podium_card {
+    justify-content: center;
+
+    h2 {
+      padding-bottom: 10%;
+    }
+  }
+
+  .podium_card__input {
+    margin-bottom: 10px;
+  }
+
+  .MuiFormControl-root {
+    min-width: 250px;
+  }
+
+  .MuiButton-root {
+    max-width: 200px;
+    align-self: center;
+    margin-top: 10px;
+  }
+}
