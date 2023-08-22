@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const USACWebSocket = () => {
+    const []
     useEffect(() => {
         const socket = new WebSocket(process.env.WEBSOCKET);
 
@@ -12,10 +13,12 @@ const USACWebSocket = () => {
         };
 
         socket.onmessage = (event) => {
-            const message = event.data;
-            //json parse
-
-            // Process message, check for final and entries
+            try {
+                const message = JSON.parse(event.data);
+                // Process message, check for final and entries
+            } catch (error) {
+                console.log("Error parsing JSON", error);
+            }
         };
 
         socket.onclose = () => {
@@ -26,6 +29,12 @@ const USACWebSocket = () => {
             socket.close();
         };
     }, []);
+
+    return (
+        <div>
+
+        </div>
+    )
 };
 
 export default USACWebSocket;
