@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const USACWebSocket = () => {
-    const []
+    const [isRacing, setIsRacing] = useState(false);
+
     useEffect(() => {
         const socket = new WebSocket(process.env.WEBSOCKET);
 
@@ -16,6 +17,8 @@ const USACWebSocket = () => {
             try {
                 const message = JSON.parse(event.data);
                 // Process message, check for final and entries
+                if (message.command === "$USAC:SUBSCRIPTIONS") {
+                }
             } catch (error) {
                 console.log("Error parsing JSON", error);
             }
@@ -30,11 +33,7 @@ const USACWebSocket = () => {
         };
     }, []);
 
-    return (
-        <div>
-
-        </div>
-    )
+    return <div>Hello</div>;
 };
 
 export default USACWebSocket;
