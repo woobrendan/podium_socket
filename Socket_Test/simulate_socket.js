@@ -10,12 +10,23 @@ const readWSFile = () => {
 
         const messages = data.split("\n");
 
-        messages.forEach((message) => {
-            const dateArr = message.split("|");
-            const dateRemoved = dateArr.slice(1).join("|").trim();
-            console.log(dateRemoved);
-            // const messageObj = JSON.parse(dateRemoved.split("|")[1]);
-            // console.log(messageObj);
+        const filtered = messages.filter((message) => !message.includes("gps"));
+
+        filtered.forEach((message) => {
+            // get index of first curly brace, i.e. after date
+            const startIndex = message.indexOf("{");
+
+            if (startIndex !== -1) {
+                // get JSON portion of data
+                const jsonData = message.slice(startIndex);
+
+                try {
+                    const messageObj = JSON.parse(jsonData);
+                    console.log(messageObj);
+                } catch (error) {
+                    console.error("Error parsing JSON", error);
+                }
+            }
         });
     });
 };
