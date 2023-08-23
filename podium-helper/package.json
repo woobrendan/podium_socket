@@ -59,7 +59,6 @@
   "devDependencies": {
     "cypress": "^10.3.1",
     "dotenv": "^16.0.3",
-    "path-browserify": "^1.0.1",
     "websocket": "^1.0.34"
   }
 }
