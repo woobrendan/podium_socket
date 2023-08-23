@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const USACWebSocket = () => {
     const [isRacing, setIsRacing] = useState(false);
+    const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
         // const socket = new WebSocket(process.env.WEBSOCKET);
@@ -12,6 +13,7 @@ const USACWebSocket = () => {
 
         socket.onopen = () => {
             console.log("Connecting to Live timing");
+            setIsConnected(true);
         };
 
         socket.onmessage = (event) => {
@@ -20,6 +22,7 @@ const USACWebSocket = () => {
                 // console.log(("message", message));
                 // Process message, check for final and entries
                 if (message.command === "$USAC:SUBSCRIPTIONS") {
+                    setIsRacing(false);
                 }
             } catch (error) {
                 console.log("Error parsing JSON", error);
@@ -35,7 +38,13 @@ const USACWebSocket = () => {
         };
     }, []);
 
-    return <div>Hello</div>;
+    return (
+        <div>
+            {isConnected &&
+                !isRacing &&
+                "Connetion established, awaiting race data"}
+        </div>
+    );
 };
 
 export default USACWebSocket;
