@@ -10,7 +10,13 @@ const readWSFile = () => {
 
         const messages = data.split("\n");
 
-        messages.forEach((message) => console.log(message));
+        messages.forEach((message) => {
+            const dateArr = message.split("|");
+            const dateRemoved = dateArr.slice(1).join("|").trim();
+            console.log(dateRemoved);
+            // const messageObj = JSON.parse(dateRemoved.split("|")[1]);
+            // console.log(messageObj);
+        });
     });
 };
 
