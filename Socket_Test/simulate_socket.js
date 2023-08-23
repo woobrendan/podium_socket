@@ -1,12 +1,10 @@
 import fs from "fs";
 
-const readWSFile = () => {
+const readWSFile = async () => {
     const messageList = [];
 
-    fs.readFile("./output.ws", "utf-8", (err, data) => {
-        if (err) {
-            console.log("error reading ws file", err);
-        }
+    try {
+        const data = await fs.promises.readFile("./output.ws", "utf-8");
 
         const messages = data.split("\n");
 
@@ -28,7 +26,10 @@ const readWSFile = () => {
                 }
             }
         });
-    });
+    } catch (err) {
+        console.error("Error reading ws file", err);
+        return [];
+    }
 
     return messageList;
 };
