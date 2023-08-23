@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const readWSFile = () => {
     const messageList = [];
@@ -32,5 +32,7 @@ const readWSFile = () => {
 
     return messageList;
 };
+
+export { readWSFile };
 
 readWSFile();
