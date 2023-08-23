@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
 const USACWebSocket = () => {
     const [isRacing, setIsRacing] = useState(false);
 
     useEffect(() => {
-        const socket = new WebSocket(process.env.WEBSOCKET);
+        // const socket = new WebSocket(process.env.WEBSOCKET);
+        const socket = new WebSocket("wss://timing.usacnation.com/ws/sro");
 
         socket.onopen = () => {
-            console.log("Connected to Live timing");
+            console.log("Connecting to Live timing");
         };
 
         socket.onmessage = (event) => {
             try {
                 const message = JSON.parse(event.data);
+                // console.log(("message", message));
                 // Process message, check for final and entries
                 if (message.command === "$USAC:SUBSCRIPTIONS") {
                 }
