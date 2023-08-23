@@ -7,7 +7,7 @@ import RecentPodium from "./components/Results/RecentPodium";
 import EntryManager from "./components/EntryManager/EntryManager";
 import USACWebSocket from "./components/websocket";
 
-function App() {
+const App = () => {
     return (
         <Router>
             <NavBar />
@@ -15,7 +15,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<USACWebSocket />} />
                     {/* <Route path="/" element={<Podium />} />
-          <Route path="/competitors" element={<DriverSearch />} />
           <Route path="/results" element={<Results />} />
           <Route path="/recent" element={<RecentPodium />} />
           <Route path="/entryManager" element={<EntryManager />} /> */}
@@ -23,6 +22,6 @@ function App() {
             </div>
         </Router>
     );
-}
+};
 
 export default App;
