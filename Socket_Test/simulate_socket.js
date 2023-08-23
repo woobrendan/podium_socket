@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const messages = [];
-
 const readWSFile = () => {
+    const messageList = [];
+
     fs.readFile("./output.ws", "utf-8", (err, data) => {
         if (err) {
             console.log("error reading ws file", err);
@@ -22,13 +22,15 @@ const readWSFile = () => {
 
                 try {
                     const messageObj = JSON.parse(jsonData);
-                    console.log(messageObj);
+                    messageList.push(messageObj);
                 } catch (error) {
                     console.error("Error parsing JSON", error);
                 }
             }
         });
     });
+
+    return messageList;
 };
 
 readWSFile();
