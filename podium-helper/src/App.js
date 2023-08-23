@@ -1,5 +1,4 @@
 import "./Styling/App.scss";
-import DriverSearch from "./components/Competitor/DriverSearch";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Podium from "./components/Podium_Creation/Podium";
 import NavBar from "./components/NavBar";
