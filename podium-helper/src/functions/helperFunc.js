@@ -1,37 +1,38 @@
 const printPage = () => {
-  window.print();
+    window.print();
 };
 
 const compareDate = (a, b) => {
-  if (a.date < b.date) {
-    return 1;
-  }
-  if (a.date > b.date) {
-    return -1;
-  }
-  return 0;
+    if (a.date < b.date) {
+        return 1;
+    }
+    if (a.date > b.date) {
+        return -1;
+    }
+    return 0;
 };
 
 const compareCarNumber = (a, b) => {
-  if (Number(a.number) < Number(b.number)) {
-    return -1;
-  }
-  if (Number(a.number) > Number(b.number)) {
-    return 1;
-  }
-  return 0;
+    if (Number(a.number) < Number(b.number)) {
+        return -1;
+    }
+    if (Number(a.number) > Number(b.number)) {
+        return 1;
+    }
+    return 0;
 };
 
 const shortenName = (seriesName) => {
-  const obj = {
-    "GT World Challenge America": "GTWCA",
-    "GT America": "GTA",
-    "TC America": "TCAM",
-    "Pirelli GT4 America": "PGT4A",
-    "Toyota GR Cup": "GR Cup",
-    "Intercontinental GT Challenge": "IGTC",
-  };
-  return obj[seriesName];
+    const obj = {
+        "GT World Challenge America": "GTWCA",
+        "Fanatec GT World Challenge America": "GTWCA",
+        "GT America": "GTA",
+        "TC America": "TCAM",
+        "Pirelli GT4 America": "PGT4A",
+        "Toyota GR Cup": "GR Cup",
+        "Intercontinental GT Challenge": "IGTC",
+    };
+    return obj[seriesName];
 };
 
 const gtwca = "GT World Challenge America";
@@ -42,14 +43,14 @@ const igtc = "Intercontinental GT Challenge";
 const grCup = "Toyota GR Cup";
 
 export {
-  printPage,
-  compareDate,
-  compareCarNumber,
-  gtwca,
-  tcam,
-  gtam,
-  gt4a,
-  igtc,
-  grCup,
-  shortenName,
+    printPage,
+    compareDate,
+    compareCarNumber,
+    gtwca,
+    tcam,
+    gtam,
+    gt4a,
+    igtc,
+    grCup,
+    shortenName,
 };
