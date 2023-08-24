@@ -1,0 +1,3 @@
+Commands
+R - race?
+T - track info
