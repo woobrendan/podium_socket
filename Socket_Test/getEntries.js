@@ -1,5 +1,4 @@
 import { readWSFile } from "./simulate_socket.js";
-import { shortenName } from "../podium-helper/src/functions/helperFunc.js";
 
 const getEntries = async () => {
     const messages = await readWSFile();
@@ -9,12 +8,25 @@ const getEntries = async () => {
     const series = seriesList[0].runName.split(" R")[0];
 
     const seriesShortHand = shortenName(series);
-    console.log("series", seriesShortHand);
 
     const filtered = messages.filter(
-        (message) => message.command === "$USAC:ENTRY",
+        (message) =>
+            message.command === "$USAC:ENTRY" &&
+            message.series === seriesShortHand,
     );
-    // console.log(filtered);
+    console.log(filtered);
 };
 
 getEntries();
+
+const shortenName = (seriesName) => {
+    const obj = {
+        "Fanatec GT World Challenge America": "GTWCA",
+        "GT America": "GTA",
+        "TC America": "TCAM",
+        "Pirelli GT4 America": "GT4 America",
+        "Toyota GR Cup": "GR Cup",
+        "Intercontinental GT Challenge": "IGTC",
+    };
+    return obj[seriesName];
+};
