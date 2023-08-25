@@ -1,5 +1,5 @@
 import { readWSFile } from "./simulate_socket.js";
-import { shortenName } from "./entryFuncs.js";
+import { shortenName, cleanEntry } from "./entryFuncs.js";
 
 const getEntries = async () => {
     try {
@@ -14,12 +14,16 @@ const getEntries = async () => {
 
         const seriesShortHand = shortenName(series);
 
+        // get entries based on series
         const filtered = messages.filter(
             (message) =>
                 message.command === "$USAC:ENTRY" &&
                 message.series === seriesShortHand,
         );
-        console.log(filtered[0]);
+
+        const entries = filtered.map((entry) => cleanEntry(entry));
+
+        return entries;
     } catch (err) {
         console.log("Error getting entries", error);
     }
