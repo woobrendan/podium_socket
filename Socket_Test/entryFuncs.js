@@ -28,6 +28,16 @@ const cleanEntry = (entry) => {
             delete entry[key];
         }
     }
+
+    entry.drivers.forEach((driver) => {
+        for (const key in driver) {
+            if (!driverKeys.includes(key)) {
+                delete driver[key];
+            }
+        }
+    });
+
+    return entry;
 };
 
 export { shortenName, cleanEntry };
