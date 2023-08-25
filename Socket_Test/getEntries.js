@@ -1,4 +1,4 @@
-import { readWSFile } from "./simulate_socket.js";
+import { readWSFile } from "./readSocket.js";
 import { shortenName, cleanEntry } from "./entryFuncs.js";
 
 const getEntries = async () => {
