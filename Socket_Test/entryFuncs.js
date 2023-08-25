@@ -10,4 +10,24 @@ const shortenName = (seriesName) => {
     return obj[seriesName];
 };
 
-export { shortenName };
+const cleanEntry = (entry) => {
+    const keysToKeep = [
+        "mlpEntryId",
+        "teamName",
+        "vehicle",
+        "manufacturer",
+        "number",
+        "series",
+        "class",
+        "drivers",
+    ];
+    const driverKeys = ["firstName", "lastName"];
+
+    for (const key in entry) {
+        if (!keysToKeep.includes(key)) {
+            delete entry[key];
+        }
+    }
+};
+
+export { shortenName, cleanEntry };
