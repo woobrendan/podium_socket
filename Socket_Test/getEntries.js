@@ -25,7 +25,7 @@ const getEntries = async () => {
 
         return entries;
     } catch (err) {
-        console.log("Error getting entries", error);
+        console.log("Error getting entries", err);
     }
 };
 
