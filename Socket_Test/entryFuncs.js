@@ -55,4 +55,4 @@ const getClasses = (series) => {
     return seriesClass[series];
 };
 
-export { shortenName, cleanEntry };
+export { shortenName, cleanEntry, getClasses };
