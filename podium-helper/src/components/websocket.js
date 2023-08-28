@@ -7,6 +7,7 @@ import "../Styling/socket.scss";
 const USACWebSocket = () => {
     const [isRacing, setIsRacing] = useState(false);
     const [isConnected, setIsConnected] = useState(false);
+    const [isComplete, setIsComplete] = useState(false);
 
     useEffect(() => {
         // const socket = new WebSocket(process.env.WEBSOCKET);
@@ -29,6 +30,8 @@ const USACWebSocket = () => {
                 console.log("Error parsing JSON", error);
             }
         };
+
+        // once isComplete is true, pass results to the table
 
         socket.onclose = () => {
             console.log("Connection to USAC Websocket closed");
