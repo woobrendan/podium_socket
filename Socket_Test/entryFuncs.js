@@ -40,4 +40,19 @@ const cleanEntry = (entry) => {
     return entry;
 };
 
+const getClasses = (series) => {
+    // take in series as FGTWCA instead of full name
+
+    const seriesClass = {
+        FGTWCA: ["Pro", "Pro-Am", "Am"],
+        IGTC: ["Pro", "Silver", "Pro-Am", "Am"],
+        "GT4 America": ["Silver", "Pro-Am", "Am"],
+        "TC America": ["TCX", "TC", "TCA"],
+        "GT America": ["SRO3", "GT4", "Masters", "GT2"],
+        TGRC: ["Am", "Female"],
+    };
+
+    return seriesClass[series];
+};
+
 export { shortenName, cleanEntry };
