@@ -58,4 +58,13 @@ const getClassResults = (resultsArr, classList) => {
     return classObj;
 };
 
-export { handleClassPodium, getClassResults };
+// Refactor later to figure out WHO is the fast lap driver
+const getFastLap = (entry) => {
+    const { drivers } = entry;
+    return {
+        driver: `${drivers[0].firstName} ${drivers[0].lastName}`,
+        laptime: "" /* stringify the time value*/,
+    };
+};
+
+export { handleClassPodium, getClassResults, getFastLap };
