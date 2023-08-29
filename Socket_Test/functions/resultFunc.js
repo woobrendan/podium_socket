@@ -68,13 +68,19 @@ const getFastLap = (entry) => {
 };
 
 const formatHardCharger = (entry) => {
+    const { drivers } = entry;
 
-    const {drivers} = entry
+    // returns concat string of driver names
+    const driverStr = drivers
+        .map((driver) => `${driver.firstName} ${driver.lastName}`)
+        .join(" & ");
+
     const hardCharger = {
         entryNum: "",
         startPos: 0,
-        drivers: 
-    }
-}
+        gain: 1,
+        drivers: driverStr,
+    };
+};
 
 export { handleClassPodium, getClassResults, getFastLap };
