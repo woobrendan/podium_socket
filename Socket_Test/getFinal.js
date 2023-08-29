@@ -1,14 +1,28 @@
-//** Once command goes to C(?) for checkered, push final messages into an arr, once list === length of entry list */
-const getFinal = (resultArr, series) => {};
+import { getClasses } from "./functions/entryFuncs";
 
-// const {
-//     event,
-//     series,
-//     date,
-//     fastLap,
-//     result1,
-//     result2,
-//     result3,
-//     result4,
-//     hardCharger,
-//   } = results;
+//** Once command goes to C(?) for checkered, push final messages into an arr, once list === length of entry list */
+const getFinal = (resultArr, series) => {
+    // return arr of classes based on series
+    const classes = getClasses(series);
+
+    const finResult = {
+        series,
+        date,
+        event,
+
+        // handle class will take the top 3 entries per class, and the class
+        result1: handleClassPodium(/* pass object of result */),
+        ...(result2
+            ? { result2: { ...handleClassPodium(/* pass object of result */) } }
+            : {}),
+        ...(result3
+            ? { result3: { ...handleClassPodium(/* pass object of result */) } }
+            : {}),
+        ...(result4
+            ? { result4: { ...handleClassPodium(/* pass object of result */) } }
+            : {}),
+
+        // hard charger
+        // fast lap
+    };
+};
