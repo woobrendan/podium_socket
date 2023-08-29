@@ -43,6 +43,18 @@ const getClassResults = (resultsArr, classList) => {
     classList.forEach((className) => {
         classObj[className] = [];
     });
+
+    for (const entry of resultsArr) {
+        for (const classif of classList) {
+            if (entry.class === classif) {
+                classObj[classif].push(entry);
+            }
+        }
+    }
+
+    //sort by points and take top 3
+
+    return classObj;
 };
 
 export { handleClassPodium };
