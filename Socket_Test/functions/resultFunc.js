@@ -67,4 +67,14 @@ const getFastLap = (entry) => {
     };
 };
 
+const formatHardCharger = (entry) => {
+
+    const {drivers} = entry
+    const hardCharger = {
+        entryNum: "",
+        startPos: 0,
+        drivers: 
+    }
+}
+
 export { handleClassPodium, getClassResults, getFastLap };
