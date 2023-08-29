@@ -1,9 +1,10 @@
 //** Build out result(x) creating entry info for each placement, and setting class */
+// Should come in as array of result per class
 const handleClassPodium = (result) => {
-    const { firstPlace, secondPlace, thirdPlace } = result;
+    const [firstPlace, secondPlace, thirdPlace] = result;
 
     return {
-        class: result.class,
+        class: firstPlace.class,
         firstPlace: { ...placementBuilder(firstPlace) },
         ...(secondPlace
             ? { secondPlace: { ...placementBuilder(secondPlace) } }
@@ -57,4 +58,4 @@ const getClassResults = (resultsArr, classList) => {
     return classObj;
 };
 
-export { handleClassPodium };
+export { handleClassPodium, getClassResults };
