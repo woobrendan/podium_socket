@@ -1,4 +1,5 @@
 import { getClasses } from "./functions/entryFuncs";
+import { handleClassPodium } from "./functions/resultFunc";
 
 //** Once command goes to C(?) for checkered, push final messages into an arr, once list === length of entry list */
 const getFinal = (resultArr, series) => {

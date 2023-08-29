@@ -35,3 +35,5 @@ const placementBuilder = (placement) => {
         number,
     };
 };
+
+export { handleClassPodium };
