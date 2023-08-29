@@ -14,19 +14,18 @@ const getFinal = (resultArr, series) => {
         date,
         event,
 
-        // handle class will take arr of results per class
-        result1: handleClassPodium(classResults[classes[0]]),
-        ...(result2
-            ? { result2: { ...handleClassPodium(classResults[classes[1]]) } }
-            : {}),
-        ...(result3
-            ? { result3: { ...handleClassPodium(classResults[classes[2]]) } }
-            : {}),
-        ...(result4
-            ? { result4: { ...handleClassPodium(classResults[classes[3]]) } }
-            : {}),
-
         // hard charger
         // fast lap
     };
+
+    // handle class will take arr of results per class
+    classes.forEach((classif, index) => {
+        if (classResult[classif].length !== 0) {
+            finResult[`result${index + 1}`] = {
+                ...handleClassPodium(classResults[classes[index]]),
+            };
+        }
+    });
+
+    return finResult;
 };
