@@ -4,6 +4,7 @@ import {
     handleClassPodium,
     getFastLap,
     formatHardCharger,
+    formatDate,
 } from "./functions/resultFunc";
 
 //** Once command goes to C(?) for checkered, push final messages into an arr, once list === length of entry list */
@@ -16,7 +17,7 @@ const getFinal = (resultArr, series) => {
 
     const finResult = {
         series,
-        date,
+        date: formatDate(/* take in command tz message */),
         event,
         fastLap:
             getFastLap(/* pass fast lap entry val along with fast lap time */),
