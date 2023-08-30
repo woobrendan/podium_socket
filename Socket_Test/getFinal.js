@@ -1,5 +1,10 @@
 import { getClasses } from "./functions/entryFuncs";
-import { getClassResults, handleClassPodium } from "./functions/resultFunc";
+import {
+    getClassResults,
+    handleClassPodium,
+    getFastLap,
+    formatHardCharger,
+} from "./functions/resultFunc";
 
 //** Once command goes to C(?) for checkered, push final messages into an arr, once list === length of entry list */
 const getFinal = (resultArr, series) => {
@@ -13,9 +18,10 @@ const getFinal = (resultArr, series) => {
         series,
         date,
         event,
-
-        // hard charger
-        // fast lap
+        fastLap:
+            getFastLap(/* pass fast lap entry val along with fast lap time */),
+        hardCharger:
+            formatHardCharger(/* Pass hard charger entry along with startPos and gain */),
     };
 
     // handle class will take arr of results per class
