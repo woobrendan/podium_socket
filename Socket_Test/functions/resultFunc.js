@@ -59,15 +59,15 @@ const getClassResults = (resultsArr, classList) => {
 };
 
 // Refactor later to figure out WHO is the fast lap driver
-const getFastLap = (entry) => {
+const getFastLap = (entry, laptime) => {
     const { drivers } = entry;
     return {
         driver: `${drivers[0].firstName} ${drivers[0].lastName}`,
-        laptime: "" /* stringify the time value*/,
+        laptime /* stringify the time value*/,
     };
 };
 
-const formatHardCharger = (entry) => {
+const formatHardCharger = (entry, startPos, gain) => {
     const { drivers, series, number, vehicle, teamName } = entry;
 
     const entry = {
@@ -83,10 +83,12 @@ const formatHardCharger = (entry) => {
 
     const hardCharger = {
         entryNum: "",
-        startPos: 0,
-        gain: 1,
+        startPos,
+        gain,
         entry,
     };
+
+    return hardCharger;
 };
 
 export { handleClassPodium, getClassResults, getFastLap, formatHardCharger };
