@@ -64,6 +64,7 @@ const getFastLap = (entry, laptime) => {
     };
 };
 
+//** Refactor Later ----  use to take in entry and return the information shaped for hard charger */
 const formatHardCharger = (entry, startPos, gain) => {
     const { drivers, series, number, vehicle, teamName } = entry;
 
@@ -88,4 +89,30 @@ const formatHardCharger = (entry, startPos, gain) => {
     return hardCharger;
 };
 
-export { handleClassPodium, getClassResults, getFastLap, formatHardCharger };
+const formatDate = (message) => {
+    // message = {
+    //     _level: 0,
+    //     _key: "$USAC:TZ",
+    //     command: "$USAC:TZ",
+    //     tz: "America/Chicago",
+    //     offset: "-05:00",
+    //     timestamp: 1684619282564000,
+    // };
+    const { tz, timestamp } = message;
+
+    const milliseconds = timestamp / 1000;
+
+    const date = new Date(milliseconds);
+
+    const dateStr = date.toLocaleString("en-US", { tz });
+
+    return dateStr;
+};
+
+export {
+    handleClassPodium,
+    getClassResults,
+    getFastLap,
+    formatHardCharger,
+    formatDate,
+};
