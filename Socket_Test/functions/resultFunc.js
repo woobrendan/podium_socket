@@ -68,19 +68,25 @@ const getFastLap = (entry) => {
 };
 
 const formatHardCharger = (entry) => {
-    const { drivers } = entry;
+    const { drivers, series, number, vehicle, teamName } = entry;
 
-    // returns concat string of driver names
-    const driverStr = drivers
-        .map((driver) => `${driver.firstName} ${driver.lastName}`)
-        .join(" & ");
+    const entry = {
+        series,
+        number,
+        vehicle,
+        team: teamName,
+    };
+
+    drivers.forEach((driver, index) => {
+        entry[`driver${index + 1}`] = `${driver.firstName} ${driver.lastName}`;
+    });
 
     const hardCharger = {
         entryNum: "",
         startPos: 0,
         gain: 1,
-        drivers: driverStr,
+        entry,
     };
 };
 
-export { handleClassPodium, getClassResults, getFastLap };
+export { handleClassPodium, getClassResults, getFastLap, formatHardCharger };
