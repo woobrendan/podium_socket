@@ -89,6 +89,7 @@ const formatHardCharger = (entry, startPos, gain) => {
     return hardCharger;
 };
 
+//** Format date in expected format for table ex: "08-30-2023" */
 const formatDate = (message) => {
     // message = {
     //     _level: 0,
@@ -104,9 +105,10 @@ const formatDate = (message) => {
 
     const date = new Date(milliseconds);
 
-    const dateStr = date.toLocaleString("en-US", { tz });
+    // return date string as "08/30/2023"
+    const dateArr = date.toLocaleString("en-US", { tz }).split(",")[0];
 
-    return dateStr;
+    return dateArr.replace(/\//g, "-");
 };
 
 export {
