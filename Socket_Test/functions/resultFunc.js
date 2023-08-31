@@ -45,10 +45,8 @@ const getClassResults = (resultsArr, classList) => {
     }, {});
 
     for (const entry of resultsArr) {
-        for (const classif of classList) {
-            if (entry.class === classif) {
-                classObj[classif].push(entry);
-            }
+        if (classObj.hasOwnProperty(entry.class)) {
+            classObj[entry.class].push(entry);
         }
     }
 
