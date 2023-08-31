@@ -3,6 +3,7 @@ import {
     formatDate,
     formatHardCharger,
     getFastLap,
+    placementBuilder,
 } from "../functions/resultFunc.js";
 import entries from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
@@ -58,5 +59,23 @@ describe("Format Award entries, Fast Lap & Hard Charger", () => {
         };
 
         assert.deepEqual(fastLap, expected);
+    });
+});
+
+describe("Creating results for class finishers", () => {
+    it("Should take a single entry and return formatted for placement finish", () => {
+        const entry = entries[0];
+
+        const expected = {
+            number: "28",
+            vehicle: "Porsche GT3 R 992",
+            team: "RS1",
+            driver1: "Eric Filgueiras",
+            driver2: "Stevan McAleer",
+        };
+
+        const formatted = placementBuilder(entry);
+
+        assert.deepEqual(formatted, expected);
     });
 });
