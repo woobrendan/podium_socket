@@ -39,11 +39,10 @@ const placementBuilder = (placement) => {
 
 //** Take in array of classes, create an object with classes as keys and push entries to matching class */
 const getClassResults = (resultsArr, classList) => {
-    const classObj = {};
-
-    classList.forEach((className) => {
-        classObj[className] = [];
-    });
+    const classObj = classList.reduce((obj, className) => {
+        obj[className] = [];
+        return obj;
+    }, {});
 
     for (const entry of resultsArr) {
         for (const classif of classList) {
