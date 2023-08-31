@@ -82,10 +82,10 @@ const formatHardCharger = (entry, startPos, gain) => {
     });
 
     const hardCharger = {
-        entryNum: "",
+        entryNum: number,
         startPos,
         gain,
-        newEntry,
+        entry: newEntry,
     };
 
     return hardCharger;
