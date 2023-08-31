@@ -6,8 +6,7 @@ import {
 import { gtwca, gtam, igtc } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
-//Change to be handle duo driver
-describe("Creating podium results for class finishers", () => {
+describe("Creating podiums for dual drivers", () => {
     it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
         const entry = cleanEntry(gtwca[0]);
 
