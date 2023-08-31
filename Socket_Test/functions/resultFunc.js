@@ -23,12 +23,12 @@ const placementBuilder = (placement) => {
         driver1: `${drivers[0].firstName} ${drivers[0].lastName}`,
         ...(drivers[1]
             ? {
-                  driver2: `${drivers[1].firstname} ${drivers[1].lastName}`,
+                  driver2: `${drivers[1].firstName} ${drivers[1].lastName}`,
               }
             : {}),
         ...(drivers[2]
             ? {
-                  driver3: `${drivers[2].firstname} ${drivers[2].lastName}`,
+                  driver3: `${drivers[2].firstName} ${drivers[2].lastName}`,
               }
             : {}),
         vehicle,
@@ -119,4 +119,5 @@ export {
     getFastLap,
     formatHardCharger,
     formatDate,
+    placementBuilder,
 };
