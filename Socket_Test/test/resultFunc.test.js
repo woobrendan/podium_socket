@@ -3,6 +3,7 @@ import {
     formatDate,
     formatHardCharger,
     getFastLap,
+    handleClassPodium,
     placementBuilder,
 } from "../functions/resultFunc.js";
 import entries from "./testEntries.js";
@@ -64,7 +65,7 @@ describe("Format Award entries, Fast Lap & Hard Charger", () => {
 
 describe("Creating results for class finishers", () => {
     it("Should take a single entry and return formatted for placement finish", () => {
-        const entry = entries[0];
+        const entry = cleanEntry(entries[0]);
 
         const expected = {
             number: "28",
@@ -78,4 +79,41 @@ describe("Creating results for class finishers", () => {
 
         assert.deepEqual(formatted, expected);
     });
+
+    it("Should take array of results and return 3 placement finishers", () => {
+        const cleanEntries = entries.map((entry) => cleanEntry(entry));
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "Pro",
+            firstPlace: {
+                driver1: "Eric Filgueiras",
+                driver2: "Stevan McAleer",
+                vehicle: "Porsche GT3 R 992",
+                team: "RS1",
+                number: "28",
+            },
+            secondPlace: {
+                driver1: "Manny Franco",
+                driver2: "Alessandro Balzan",
+                vehicle: "Ferrari 296 GT3",
+                team: "Conquest Racing",
+                number: "21",
+            },
+            thirdPlace: {
+                driver1: "Chandler Hull",
+                driver2: "Bill Auberlen",
+                vehicle: "BMW M4 GT3",
+                team: "BimmerWorld",
+                number: "94",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+
+    it("Should handle podiums and classes that have 2 entrants", () => {});
+    it("Should handle podiums and classes that have 1 entrants", () => {});
+    it("Should handle podiums and classes that have 3 drivers", () => {});
 });
