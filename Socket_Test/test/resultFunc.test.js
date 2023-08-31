@@ -1,5 +1,9 @@
 import { assert } from "chai";
-import { formatDate, formatHardCharger } from "../functions/resultFunc.js";
+import {
+    formatDate,
+    formatHardCharger,
+    getFastLap,
+} from "../functions/resultFunc.js";
 import entries from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
@@ -21,9 +25,9 @@ describe("Format incoming TZ message to get date", () => {
 });
 
 describe("Format Award entries, Fast Lap & Hard Charger", () => {
-    it("Should format the hard charger from incoming message", () => {
-        const entry = cleanEntry(entries[0]);
+    const entry = cleanEntry(entries[0]);
 
+    it("Should format the hard charger from incoming message", () => {
         const expected = {
             entryNum: "28",
             startPos: 9,
@@ -41,7 +45,18 @@ describe("Format Award entries, Fast Lap & Hard Charger", () => {
         // refactor later to gather startPos and gain from messages
         const hardCharger = formatHardCharger(entry, 9, 7);
 
-        console.log(hardCharger);
         assert.deepEqual(hardCharger, expected);
+    });
+
+    it("Should format fast lap from incoming message", () => {
+        const lapTime = "2:06.431";
+        const fastLap = getFastLap(entry, lapTime);
+
+        const expected = {
+            driver: "Eric Filgueiras",
+            laptime: "2:06.431",
+        };
+
+        assert.deepEqual(fastLap, expected);
     });
 });
