@@ -68,7 +68,7 @@ const getFastLap = (entry, laptime) => {
 const formatHardCharger = (entry, startPos, gain) => {
     const { drivers, series, number, vehicle, teamName } = entry;
 
-    const entry = {
+    const newEntry = {
         series,
         number,
         vehicle,
@@ -76,14 +76,16 @@ const formatHardCharger = (entry, startPos, gain) => {
     };
 
     drivers.forEach((driver, index) => {
-        entry[`driver${index + 1}`] = `${driver.firstName} ${driver.lastName}`;
+        newEntry[
+            `driver${index + 1}`
+        ] = `${driver.firstName} ${driver.lastName}`;
     });
 
     const hardCharger = {
         entryNum: "",
         startPos,
         gain,
-        entry,
+        newEntry,
     };
 
     return hardCharger;
