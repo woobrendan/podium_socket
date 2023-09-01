@@ -1,4 +1,4 @@
-const entries = [
+const gtwca = [
     {
         _level: 0,
         _key: "$USAC:ENTRY|entries:events-lJKQh5JmkIuKl8rnnFAqm:gsXAJv6AazMWZqtwT2gP_",
@@ -128,4 +128,4 @@ const entries = [
     },
 ];
 
-export default entries;
+export { gtwca };
