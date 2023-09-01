@@ -3,9 +3,10 @@ import {
     handleClassPodium,
     placementBuilder,
 } from "../functions/resultFunc.js";
-import { gtwca } from "./testEntries.js";
+import { gtwca, gtam } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
+//Change to be handle duo driver
 describe("Creating podium results for class finishers", () => {
     it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
         const entry = cleanEntry(gtwca[0]);
@@ -84,7 +85,7 @@ describe("Creating podium results for class finishers", () => {
         assert.deepEqual(podium, expected);
     });
     it("Should handle podiums and classes that have 1 entrants", () => {
-        const cleanEntries = [entries[0]].map((entry) => cleanEntry(entry));
+        const cleanEntries = [gtwca[0]].map((entry) => cleanEntry(entry));
 
         const podium = handleClassPodium(cleanEntries);
 
@@ -104,4 +105,36 @@ describe("Creating podium results for class finishers", () => {
     it("Should handle podiums and classes that have 3 drivers", () => {});
 });
 
-describe("Single Driver podiums", () => {});
+describe("Single Driver podiums", () => {
+    it("Should handle full podiums", () => {
+        const cleanEntries = gtam.map((entry) => cleanEntry(entry));
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "SRO3",
+            firstPlace: {
+                driver1: "Memo Gidley",
+                vehicle: "Mercedes-AMG GT3",
+                team: "TKO Motorsports",
+                number: "101",
+            },
+            secondPlace: {
+                driver1: "Jason Daskalos",
+                vehicle: "Mercedes-AMG GT3",
+                team: "CRP Racing",
+                number: "27",
+            },
+            thirdPlace: {
+                driver1: "Adam Adelson",
+                vehicle: "Porsche 992 R GT3",
+                team: "Wright Motorsports",
+                number: "120",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+});
+
+//** Make test for multi class */
