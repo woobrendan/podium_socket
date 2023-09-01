@@ -135,6 +135,50 @@ describe("Single Driver podiums", () => {
 
         assert.deepEqual(podium, expected);
     });
+
+    it("Should handle podiums with class 2 finishers", () => {
+        const cleanEntries = [gtam[0], gtam[1]].map((entry) =>
+            cleanEntry(entry),
+        );
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "SRO3",
+            firstPlace: {
+                driver1: "Memo Gidley",
+                vehicle: "Mercedes-AMG GT3",
+                team: "TKO Motorsports",
+                number: "101",
+            },
+            secondPlace: {
+                driver1: "Jason Daskalos",
+                vehicle: "Mercedes-AMG GT3",
+                team: "CRP Racing",
+                number: "27",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+
+    it("Should handle podiums with class 1 finisher", () => {
+        const cleanEntries = [cleanEntry(gtam[0])];
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "SRO3",
+            firstPlace: {
+                driver1: "Memo Gidley",
+                vehicle: "Mercedes-AMG GT3",
+                team: "TKO Motorsports",
+                number: "101",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
 });
 
 //** Make test for multi class */
