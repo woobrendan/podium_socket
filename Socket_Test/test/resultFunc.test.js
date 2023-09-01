@@ -6,7 +6,7 @@ import {
     handleClassPodium,
     placementBuilder,
 } from "../functions/resultFunc.js";
-import entries from "./testEntries.js";
+import { gtwca } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
 describe("Format incoming TZ message to get date", () => {
@@ -27,7 +27,7 @@ describe("Format incoming TZ message to get date", () => {
 });
 
 describe("Format Award entries, Fast Lap & Hard Charger", () => {
-    const entry = cleanEntry(entries[0]);
+    const entry = cleanEntry(gtwca[0]);
 
     it("Should format the hard charger from incoming message", () => {
         const expected = {

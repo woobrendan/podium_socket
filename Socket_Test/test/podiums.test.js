@@ -3,12 +3,12 @@ import {
     handleClassPodium,
     placementBuilder,
 } from "../functions/resultFunc.js";
-import entries from "./testEntries.js";
+import { gtwca } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
 describe("Creating podium results for class finishers", () => {
     it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
-        const entry = cleanEntry(entries[0]);
+        const entry = cleanEntry(gtwca[0]);
 
         const expected = {
             number: "28",
@@ -24,7 +24,7 @@ describe("Creating podium results for class finishers", () => {
     });
 
     it("Should take array of results and return 3 placement finishers", () => {
-        const cleanEntries = entries.map((entry) => cleanEntry(entry));
+        const cleanEntries = gtwca.map((entry) => cleanEntry(entry));
 
         const podium = handleClassPodium(cleanEntries);
 
@@ -57,7 +57,7 @@ describe("Creating podium results for class finishers", () => {
     });
 
     it("Should handle podiums and classes that have 2 entrants", () => {
-        const cleanEntries = [entries[0], entries[1]].map((entry) =>
+        const cleanEntries = [gtwca[0], gtwca[1]].map((entry) =>
             cleanEntry(entry),
         );
 
@@ -103,3 +103,5 @@ describe("Creating podium results for class finishers", () => {
     });
     it("Should handle podiums and classes that have 3 drivers", () => {});
 });
+
+describe("Single Driver podiums", () => {});
