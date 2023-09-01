@@ -3,7 +3,7 @@ import {
     handleClassPodium,
     placementBuilder,
 } from "../functions/resultFunc.js";
-import { gtwca, gtam } from "./testEntries.js";
+import { gtwca, gtam, igtc } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
 //Change to be handle duo driver
@@ -102,7 +102,6 @@ describe("Creating podium results for class finishers", () => {
 
         assert.deepEqual(podium, expected);
     });
-    it("Should handle podiums and classes that have 3 drivers", () => {});
 });
 
 describe("Single Driver podiums", () => {
@@ -174,6 +173,44 @@ describe("Single Driver podiums", () => {
                 vehicle: "Mercedes-AMG GT3",
                 team: "TKO Motorsports",
                 number: "101",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+});
+
+describe("Three Driver Podiums", () => {
+    it("Should handle podiums that have 3 drivers", () => {
+        const cleanEntries = igtc.map((entry) => cleanEntry(entry));
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "Pro",
+            firstPlace: {
+                driver1: "Eric Filgueiras",
+                driver2: "Stevan McAleer",
+                driver3: "Matt Campbell",
+                vehicle: "Porsche GT3 R 992",
+                team: "RS1",
+                number: "28",
+            },
+            secondPlace: {
+                driver1: "Manny Franco",
+                driver2: "Alessandro Balzan",
+                driver3: "Alex Riberas",
+                vehicle: "Ferrari 296 GT3",
+                team: "Conquest Racing",
+                number: "21",
+            },
+            thirdPlace: {
+                driver1: "Chandler Hull",
+                driver2: "Bill Auberlen",
+                driver3: "Jon Edwards",
+                vehicle: "BMW M4 GT3",
+                team: "BimmerWorld",
+                number: "94",
             },
         };
 
