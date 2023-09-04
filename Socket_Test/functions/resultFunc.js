@@ -124,11 +124,7 @@ const getSeries = (message) => {
         return series + " America";
     }
 
-    if (runName.includes("GT4")) {
-        return runName;
-    }
-
-    return seriesShortHand;
+    return runName;
 };
 
 export {
