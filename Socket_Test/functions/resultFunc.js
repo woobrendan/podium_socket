@@ -115,11 +115,14 @@ const formatDate = (message) => {
 
 // Take in command R message
 const getSeries = (message) => {
-    const seriesRunName = message.runName;
+    const seriesRunName = message.runName.split(" ");
 
     // string runname is "Fanatec GT World Challenge Race 1", remove Race 1 from string
-
-    const seriesShortHand = shortenName(seriesRunName.split(" R")[0]);
+    if (seriesRunName.includes("F")) {
+        // run arr will be ['fanatec' .....'race', '1'], just keep gtwc
+        const series = seriesRunName.split(" ").slice(1, 4).join(" ");
+        return series + " America";
+    }
 
     return seriesShortHand;
 };
