@@ -113,15 +113,19 @@ const formatDate = (message) => {
     return dateArr.replace(/\//g, "-");
 };
 
-// Take in command R message
+// Take in command R message refactor later for other series
 const getSeries = (message) => {
-    const seriesRunName = message.runName.split(" ");
+    // Remove race X string from runName
+    const runName = message.runName.replace(/ Race (1|2)$/, "");
 
-    // string runname is "Fanatec GT World Challenge Race 1", remove Race 1 from string
-    if (seriesRunName.includes("F")) {
-        // run arr will be ['fanatec' .....'race', '1'], just keep gtwc
-        const series = seriesRunName.split(" ").slice(1, 4).join(" ");
+    // string runname is "Fanatec GT World Challenge",
+    if (runName.includes("F")) {
+        const series = runName.split(" ").slice(1, 4).join(" ");
         return series + " America";
+    }
+
+    if (runName.includes("GT4")) {
+        return runName;
     }
 
     return seriesShortHand;
@@ -134,4 +138,5 @@ export {
     formatHardCharger,
     formatDate,
     placementBuilder,
+    getSeries,
 };
