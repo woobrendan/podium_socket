@@ -3,14 +3,13 @@ import {
     formatDate,
     formatHardCharger,
     getFastLap,
-    handleClassPodium,
-    placementBuilder,
+    getSeries,
 } from "../functions/resultFunc.js";
 import { gtwca } from "./testEntries.js";
 import { cleanEntry } from "../functions/entryFuncs.js";
 
-describe("Format incoming TZ message to get date", () => {
-    it('Should return in format of "08-30-2023"', () => {
+describe("Format incoming socket messages ", () => {
+    it('Should take in tz message and return date format of "08-30-2023"', () => {
         const socketMsg = {
             _level: 0,
             _key: "$USAC:TZ",
@@ -23,6 +22,23 @@ describe("Format incoming TZ message to get date", () => {
         const date = formatDate(socketMsg);
 
         assert.equal(date, "5-20-2023");
+    });
+
+    it("Should take in a command R message and return the series name stripped of extra characters", () => {
+        const message = {
+            command: "$R",
+            type: "R",
+            eventName: "SRO COTA",
+            eventShortName: "",
+            runName: "Fanatec GT World Challenge America Race 1",
+            runType: "R",
+            startTime: 1684613400,
+            _key: "$R",
+        };
+
+        const series = getSeries(message);
+
+        assert.equal(series, "GT World Challenge America");
     });
 });
 
