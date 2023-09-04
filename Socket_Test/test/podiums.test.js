@@ -105,6 +105,21 @@ describe("Creating podium results for class finishers", () => {
 });
 
 describe("Single Driver podiums", () => {
+    it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
+        const entry = cleanEntry(gtam[0]);
+
+        const expected = {
+            number: "101",
+            vehicle: "Mercedes-AMG GT3",
+            team: "TKO Motorsports",
+            driver1: "Memo Gidley",
+        };
+
+        const formatted = placementBuilder(entry);
+
+        assert.deepEqual(formatted, expected);
+    });
+
     it("Should handle full podiums", () => {
         const cleanEntries = gtam.map((entry) => cleanEntry(entry));
 
@@ -181,6 +196,23 @@ describe("Single Driver podiums", () => {
 });
 
 describe("Three Driver Podiums", () => {
+    it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
+        const entry = cleanEntry(igtc[0]);
+
+        const expected = {
+            number: "28",
+            vehicle: "Porsche GT3 R 992",
+            team: "RS1",
+            driver1: "Eric Filgueiras",
+            driver2: "Stevan McAleer",
+            driver3: "Matt Campbell",
+        };
+
+        const formatted = placementBuilder(entry);
+
+        assert.deepEqual(formatted, expected);
+    });
+
     it("Should handle podiums that have 3 drivers", () => {
         const cleanEntries = igtc.map((entry) => cleanEntry(entry));
 
