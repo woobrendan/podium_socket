@@ -113,6 +113,17 @@ const formatDate = (message) => {
     return dateArr.replace(/\//g, "-");
 };
 
+// Take in command R message
+const getSeries = (message) => {
+    const seriesRunName = message.runName;
+
+    // string runname is "Fanatec GT World Challenge Race 1", remove Race 1 from string
+
+    const seriesShortHand = shortenName(seriesRunName.split(" R")[0]);
+
+    return seriesShortHand;
+};
+
 export {
     handleClassPodium,
     getClassResults,
