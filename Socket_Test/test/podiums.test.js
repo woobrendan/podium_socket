@@ -213,7 +213,7 @@ describe("Three Driver Podiums", () => {
         assert.deepEqual(formatted, expected);
     });
 
-    it("Should handle podiums that have 3 drivers", () => {
+    it("Should handle podiums that have 3 placements", () => {
         const cleanEntries = igtc.map((entry) => cleanEntry(entry));
 
         const podium = handleClassPodium(cleanEntries);
@@ -243,6 +243,56 @@ describe("Three Driver Podiums", () => {
                 vehicle: "BMW M4 GT3",
                 team: "BimmerWorld",
                 number: "94",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+
+    it("Should handle podiums that have 2 placements", () => {
+        const cleanEntries = [igtc[0], igtc[1]].map((entry) =>
+            cleanEntry(entry),
+        );
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "Pro",
+            firstPlace: {
+                driver1: "Eric Filgueiras",
+                driver2: "Stevan McAleer",
+                driver3: "Matt Campbell",
+                vehicle: "Porsche GT3 R 992",
+                team: "RS1",
+                number: "28",
+            },
+            secondPlace: {
+                driver1: "Manny Franco",
+                driver2: "Alessandro Balzan",
+                driver3: "Alex Riberas",
+                vehicle: "Ferrari 296 GT3",
+                team: "Conquest Racing",
+                number: "21",
+            },
+        };
+
+        assert.deepEqual(podium, expected);
+    });
+
+    it("Should handle podiums that have 1 placement", () => {
+        const cleanEntries = [cleanEntry(igtc[0])];
+
+        const podium = handleClassPodium(cleanEntries);
+
+        const expected = {
+            class: "Pro",
+            firstPlace: {
+                driver1: "Eric Filgueiras",
+                driver2: "Stevan McAleer",
+                driver3: "Matt Campbell",
+                vehicle: "Porsche GT3 R 992",
+                team: "RS1",
+                number: "28",
             },
         };
 
