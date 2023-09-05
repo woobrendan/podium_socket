@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteEntry, updateEntry } from "./entryActions";
+import { deleteEntry, updateEntry } from "./entryActions.js";
 
 const entrySlice = createSlice({
   name: "entries",

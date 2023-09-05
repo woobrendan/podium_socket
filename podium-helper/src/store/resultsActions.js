@@ -1,27 +1,28 @@
-import { resultsActions } from "./resultsSlice";
+import { resultsActions } from "./resultsSlice.js";
 import axios from "axios";
-import { compareResultDates } from "../functions/sortFuncs";
+import { compareResultDates } from "../functions/sortFuncs.js";
 
 export const fetchData = () => {
-  return async (dispatch) => {
-    try {
-      const results = await axios.get("http://localhost:2020/results");
-      const recent = results.data.results[results.data.results.length - 1];
-      const sortedResults = results.data.results.sort(compareResultDates);
-      dispatch(resultsActions.setRecentPodium(recent));
-      dispatch(resultsActions.setResultHistory(sortedResults));
-    } catch (err) {
-      console.log("Error fetching results:", err);
-    }
-  };
+    return async (dispatch) => {
+        try {
+            const results = await axios.get("http://localhost:2020/results");
+            const recent =
+                results.data.results[results.data.results.length - 1];
+            const sortedResults = results.data.results.sort(compareResultDates);
+            dispatch(resultsActions.setRecentPodium(recent));
+            dispatch(resultsActions.setResultHistory(sortedResults));
+        } catch (err) {
+            console.log("Error fetching results:", err);
+        }
+    };
 };
 
 export const addResultToDB = async (result) => {
-  try {
-    await axios.post("http://localhost:2020/results", {
-      results: result,
-    });
-  } catch (err) {
-    console.log("Error:", err);
-  }
+    try {
+        await axios.post("http://localhost:2020/results", {
+            results: result,
+        });
+    } catch (err) {
+        console.log("Error:", err);
+    }
 };
