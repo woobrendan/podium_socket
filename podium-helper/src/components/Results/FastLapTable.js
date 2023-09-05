@@ -1,6 +1,6 @@
 import { TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import "../../Styling/result.scss";
-import { grCup } from "../../functions/helperFunc";
+import { grCup } from "../../functions/helperFunc.js";
 
 const FastLapTable = ({ fastLap, series }) => {
   const fastTitle = series === grCup ? "Fast Lap" : "CrowdStrike Fast Lap";

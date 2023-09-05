@@ -7,11 +7,11 @@ import {
     TableRow,
     Paper,
 } from "@mui/material";
-import ResultTableBody from "./ResultTableBody";
-import FastLapTable from "./FastLapTable";
+import ResultTableBody from "./ResultTableBody.js";
+import FastLapTable from "./FastLapTable.js";
 import "../../Styling/result.scss";
-import { dateToString } from "../../functions/dateFuncs";
-import HardCharger from "./HardCharger";
+import { dateToString } from "../../functions/dateFuncs.js";
+import HardCharger from "./HardCharger.js";
 
 const ResultTableHeader = ({ results }) => {
     const {

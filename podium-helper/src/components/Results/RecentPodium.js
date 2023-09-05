@@ -1,10 +1,10 @@
-import ResultTableHeader from "./ResultTableHeader";
+import ResultTableHeader from "./ResultTableHeader.js";
 import { useEffect } from "react";
-import { printPage } from "../../functions/helperFunc";
+import { printPage } from "../../functions/helperFunc.js";
 import { Button } from "@mui/material";
 import "../../Styling/result.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../../store/resultsActions";
+import { fetchData } from "../../store/resultsActions.js";
 
 const RecentPodium = () => {
   const dispatch = useDispatch();
