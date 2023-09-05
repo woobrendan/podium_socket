@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FormControl, InputLabel, Select, Box, MenuItem } from "@mui/material";
 import axios from "axios";
-import { sortSeriesNames } from "../../functions/sortFuncs";
+import { sortSeriesNames } from "../../functions/sortFuncs.js";
 
 const Series = ({ getValue, comp }) => {
   const [seriesName, setSeriesName] = useState("");
