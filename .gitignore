@@ -24,6 +24,7 @@ config.env
 .env.test.local
 .env.production.local
 .ws
+.dockerignore
 
 npm-debug.log*
 yarn-debug.log*
