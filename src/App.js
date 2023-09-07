@@ -4,8 +4,8 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./components/NavBar.js";
 // import Results from "./components/Results/ResultsHistory.js";
 // import RecentPodium from "./components/Results/RecentPodium.js";
-// import EntryManager from "./components/EntryManager/EntryManager.js";
 import USACWebSocket from "./components/websocket.js";
+import Home from "./components/Home.js"
 
 const App = () => {
     return (
@@ -13,11 +13,11 @@ const App = () => {
             <NavBar />
             <div className="App">
                 <Routes>
-                    <Route path="/" element={<USACWebSocket />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/live" element={<USACWebSocket />} />
                     {/* <Route path="/" element={<Podium />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/recent" element={<RecentPodium />} />
-          <Route path="/entryManager" element={<EntryManager />} /> */}
+                        <Route path="/results" element={<Results />} />
+                        <Route path="/recent" element={<RecentPodium />} />*/}
                 </Routes>
             </div>
         </Router>
