@@ -16,7 +16,8 @@ const NavBar = () => {
                         >
                             <img src={SRO} alt="SRO" />
                         </a>
-                        <Link to="/">New Podium</Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/live">Live Race</Link>
                         <Link to="/Results">Results</Link>
                     </div>
                 </Toolbar>
