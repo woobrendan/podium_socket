@@ -12,7 +12,6 @@ const HomePage = () => {
     return (
         <section id="homepage">
             <div className="nav_list">
-                <p>Hello</p>
                 {links.map((link, index) => (
                     <Card key={index} onClick={() => navigate(link.link)}>
                         <CardContent>
