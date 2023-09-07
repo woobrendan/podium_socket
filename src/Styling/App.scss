@@ -48,11 +48,18 @@
 #homepage {
     display: flex;
     justify-content: center;
+    height: 100vh;
+    align-items: center;
+
+    background-image: url("https://www.gt-world-challenge-america.com//timthumb.php?w=800&src=%2Fimages%2Fgallery%2F2023%2F88%2F381%2F%2FSRO23_RA_4671__FL-Enhanced-NR-topaz-denoise-sharpen.jpg");
+    background-size: cover;
 
     .nav_list {
         width: 50%;
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
+        height: 30vh;
     }
 }
 
