@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar.js";
 // import Results from "./components/Results/ResultsHistory.js";
 // import RecentPodium from "./components/Results/RecentPodium.js";
 import USACWebSocket from "./components/websocket.js";
-import Home from "./components/Home.js"
+import HomePage from "./components/HomePage.js";
 
 const App = () => {
     return (
@@ -13,7 +13,7 @@ const App = () => {
             <NavBar />
             <div className="App">
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/live" element={<USACWebSocket />} />
                     {/* <Route path="/" element={<Podium />} />
                         <Route path="/results" element={<Results />} />
