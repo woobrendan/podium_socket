@@ -56,9 +56,20 @@
     .nav_list {
         width: 100vw;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         height: 10vh;
         padding-top: 5%;
+        gap: 5vw;
+
+        .MuiCard-root {
+            width: 20%;
+            background: linear-gradient(
+                90deg,
+                rgba(70, 45, 45, 1) 11%,
+                rgba(255, 0, 0, 1) 100%
+            );
+            color: white;
+        }
     }
 }
 
