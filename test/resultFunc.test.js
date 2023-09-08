@@ -4,9 +4,9 @@ import {
     formatHardCharger,
     getFastLap,
     getSeries,
-} from "../functions/resultFunc.js";
+} from "../src/Socket_Test/functions/resultFunc.js";
 import { gtwca } from "./testEntries.js";
-import { cleanEntry } from "../Socket_Test/functions/entryFuncs.js";
+import { cleanEntry } from "../src/Socket_Test/functions/entryFuncs.js";
 
 describe("Format incoming socket messages ", () => {
     it('Should take in tz message and return date format of "08-30-2023"', () => {
