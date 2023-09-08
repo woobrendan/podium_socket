@@ -2,9 +2,9 @@ import { assert } from "chai";
 import {
     handleClassPodium,
     placementBuilder,
-} from "../functions/resultFunc.js";
+} from "../src/Socket_test/functions/resultFunc.js";
 import { gtwca, gtam, igtc } from "./testEntries.js";
-import { cleanEntry } from "../Socket_test/functions/entryFuncs.js";
+import { cleanEntry } from "../src/Socket_test/functions/entryFuncs.js";
 
 describe("Creating podiums for dual drivers", () => {
     it("PlacementBuild Func Should take a single entry and return formatted for placement finish", () => {
