@@ -8,11 +8,11 @@ jobs:
         name: Run Tests
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v3
-        - name: Install Dependencies and Run Tests
-            run: |
-                npm install mocha chai
-                npx mocha test
+            - uses: actions/checkout@v3
+            - name: Install Dependencies and Run Tests
+              run: |
+                  npm install mocha chai
+                  npx mocha test
     deploy:
         name: Deploy app
         needs: test
@@ -21,7 +21,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: superfly/flyctl-actions/setup-flyctl@master
             - name: Deploy if Tests Passed
-              if: success() 
+              if: success()
               run: flyctl deploy --remote-only
               env:
                   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
