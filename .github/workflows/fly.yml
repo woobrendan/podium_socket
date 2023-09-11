@@ -8,7 +8,10 @@ jobs:
         name: Run Tests
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout Code
+              uses: actions/checkout@v3
+            - name: Set Working Directory
+              run: cd $GITHUB_WORKSPACE
             - name: Install Dependencies and Run Tests
               run: |
                   npm install mocha chai
