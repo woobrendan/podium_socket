@@ -10,8 +10,8 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v3
-            - name: Set Working Directory
-              run: cd $GITHUB_WORKSPACE/podium_socket
+            # - name: Set Working Directory
+            #   run: cd $GITHUB_WORKSPACE/podium_socket
             - name: Install Dependencies and Run Tests
               run: |
                   npm install mocha chai
