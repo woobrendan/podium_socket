@@ -2,38 +2,33 @@ import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import ResultTableHeader from "./ResultTableHeader.js";
 import SearchAllResults from "./SearchAllResults.js";
-import BackToTopButton from "../BackToTopButton.js";
-import EventSearch from "../EventsSearch.js";
+// import BackToTopButton from "../BackToTopButton.js";
+// import EventSearch from "../EventsSearch.js";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../store/resultsActions.js";
 
 const ResultsHistory = () => {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState("");
-    const [event, setEvent] = useState("");
+    // const [event, setEvent] = useState("");
     const [filteredResults, setFilteredResults] = useState([]);
 
     const results = useSelector((state) => state.results.resultsArray);
 
-    const getValue = (event) => setEvent(event.target.value);
+    // const getValue = (event) => setEvent(event.target.value);
 
     useEffect(() => {
         dispatch(fetchData());
     }, [dispatch]);
 
     useEffect(() => {
-        event
-            ? setFilteredResults(
-                  results.filter((result) => event === result.event),
-              )
-            : setFilteredResults(results);
-    }, [event, results]);
+        setFilteredResults(results);
+    }, [results]);
 
     return (
         <section className="result-container">
             <h1>Result History</h1>
             <div className="filter-details">
-                <EventSearch getValue={getValue} />
                 <TextField
                     className="result_search"
                     label="Search"
@@ -52,7 +47,6 @@ const ResultsHistory = () => {
                     ),
                 )}
             </div>
-            <BackToTopButton />
         </section>
     );
 };
