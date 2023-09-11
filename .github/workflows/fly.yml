@@ -15,7 +15,7 @@ jobs:
             - name: Install Dependencies and Run Tests
               run: |
                   npm install mocha chai
-                  npx mocha src/Socket_test/test
+                  npx mocha src/Socket_Test/test
     deploy:
         name: Deploy app
         needs: test
