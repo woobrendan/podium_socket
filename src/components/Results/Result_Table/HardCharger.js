@@ -1,5 +1,5 @@
 import { TableCell, TableHead, TableRow, TableBody } from "@mui/material";
-import { grCup } from "../../functions/helperFunc.js";
+import { grCup } from "../../../functions/helperFunc.js";
 
 const HardCharger = ({ hardCharger }) => {
     const { gain, entry, startPos } = hardCharger;
