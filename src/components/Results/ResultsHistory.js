@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
-import ResultTableHeader from "./ResultTableHeader.js";
+import ResultTableHeader from "./Result_Table/ResultTableHeader.js";
 import SearchAllResults from "./SearchAllResults.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const ResultsHistory = () => {
     const [searchValue, setSearchValue] = useState("");

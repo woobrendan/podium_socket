@@ -1,4 +1,4 @@
-import ResultTableHeader from "./ResultTableHeader.js";
+import ResultTableHeader from "./Result_Table/ResultTableHeader.js";
 import { printPage } from "../../functions/helperFunc.js";
 import { Button } from "@mui/material";
 import "../../Styling/result.scss";
