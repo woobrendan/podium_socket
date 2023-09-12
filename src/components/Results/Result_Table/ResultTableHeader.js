@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import ResultTableBody from "./ResultTableBody.js";
 import FastLapTable from "./FastLapTable.js";
-import "../../Styling/result.scss";
+import "../../../Styling/result.scss";
 import { dateToString } from "../../../functions/dateFuncs.js";
 import HardCharger from "./HardCharger.js";
 

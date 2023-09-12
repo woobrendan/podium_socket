@@ -1,5 +1,5 @@
 import { TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import "../../Styling/result.scss";
+import "../../../Styling/result.scss";
 import { grCup } from "../../../functions/helperFunc.js";
 
 const FastLapTable = ({ fastLap, series }) => {
