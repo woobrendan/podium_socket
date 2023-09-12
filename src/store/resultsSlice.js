@@ -1,24 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addResultToDB } from "./resultsActions.js";
+import { results } from "./results.js";
+import { compareResultDates } from "../functions/sortFuncs.js";
+
+// Return results with most recent first
+const sortedResults = results.sort(compareResultDates);
 
 const resultsSlice = createSlice({
     name: "results",
     initialState: {
-        resultsArray: [],
-        recentPodium: null,
+        resultsArray: [...sortedResults],
+        recentPodium: sortedResults[0],
     },
     reducers: {
-        setResultHistory(state, action) {
-            state.resultsArray = action.payload;
-        },
-
         addResults(state, action) {
-            const result = action.payload;
-            state.resultsArray.push({
-                ...result,
-            });
-            state.recentPodium = result;
-            addResultToDB(result);
+            state.resultsArray.push({ ...action.payload });
+            state.recentPodium = action.payload;
         },
 
         setRecentPodium(state, action) {
