@@ -28,9 +28,13 @@ const ResultTableBody = ({ results }) => {
     const checkPodium = () => {
         const allResults = [];
         const getPlaceString = (num) => {
-            if (num === 0) return "1st";
-            if (num === 1) return "2nd";
-            if (num === 2) return "3rd";
+            const placements = {
+                0: "1st",
+                1: "2nd",
+                2: "3rd",
+            };
+
+            return placements[num];
         };
 
         //** Loop through each placemnt, if that place exists create the data and push that arr */
