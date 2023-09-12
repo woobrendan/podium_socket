@@ -2,24 +2,13 @@ import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import ResultTableHeader from "./ResultTableHeader.js";
 import SearchAllResults from "./SearchAllResults.js";
-// import BackToTopButton from "../BackToTopButton.js";
-// import EventSearch from "../EventsSearch.js";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../../store/resultsActions.js";
 
 const ResultsHistory = () => {
-    const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState("");
-    // const [event, setEvent] = useState("");
     const [filteredResults, setFilteredResults] = useState([]);
 
     const results = useSelector((state) => state.results.resultsArray);
-
-    // const getValue = (event) => setEvent(event.target.value);
-
-    useEffect(() => {
-        dispatch(fetchData());
-    }, [dispatch]);
 
     useEffect(() => {
         setFilteredResults(results);
