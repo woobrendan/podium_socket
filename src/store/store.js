@@ -4,7 +4,6 @@ import resultsSlice from "./resultsSlice.js";
 
 const store = configureStore({
     reducer: {
-        entry: entrySlice.reducer,
         results: resultsSlice.reducer,
     },
 });
