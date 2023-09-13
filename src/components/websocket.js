@@ -46,7 +46,7 @@ const USACWebSocket = () => {
         <section id="socket_home">
             {isConnected &&
                 !isRacing &&
-                "Connetion established, awaiting race data"}
+                "Connection established, awaiting race data"}
         </section>
     );
 };
