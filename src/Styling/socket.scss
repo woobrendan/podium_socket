@@ -3,4 +3,17 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+
+    ul {
+        .event {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        display: flex;
+        flex-direction: column;
+        img {
+            object-fit: contain;
+        }
+    }
 }
