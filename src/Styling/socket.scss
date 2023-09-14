@@ -1,23 +1,35 @@
 #socket_home {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
+    width: 100vw;
 
     ul {
         display: flex;
         flex-direction: column;
+        width: 35vw;
 
         .event {
             list-style: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            // height: ;
+            height: 10vh;
         }
 
         img {
             object-fit: contain;
+            height: 100%;
+            width: 50%;
         }
+    }
+
+    .socket_container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
