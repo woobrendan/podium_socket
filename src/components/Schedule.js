@@ -10,8 +10,20 @@ const schedule = [
     { event: "Indianapolis Motor Speedway", date: "Oct 5-8, 2023" },
 ];
 
-const FooterSchedule = () => {
-    return <> </>;
+const Schedule = () => {
+    const scheduleList = schedule.map((race, index) => (
+        <li>
+            <div>
+                <img alt={race.event} src={} />
+                <div className="event_info">
+                    <h3>{race.event}</h3>
+                    <p>{race.date}</p>
+                </div>
+            </div>
+
+        </li>
+    ))
+    return <ul>{scheduleList} </ul>;
 };
 
-export default FooterSchedule;
+export default Schedule;
