@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../Styling/socket.scss";
+import Schedule from "./Schedule/Schedule.js";
 // import dotenv from "dotenv";
 
 // dotenv.config();
@@ -43,11 +44,14 @@ const USACWebSocket = () => {
     }, []);
 
     return (
-        <section id="socket_home">
-            {isConnected &&
-                !isRacing &&
-                "Connection established, awaiting race data"}
-        </section>
+        <>
+            <section id="socket_home">
+                <Schedule />
+                {isConnected &&
+                    !isRacing &&
+                    "Connection established, awaiting race data"}
+            </section>
+        </>
     );
 };
 
