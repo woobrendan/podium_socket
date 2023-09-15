@@ -52,6 +52,8 @@
 
     background-image: url("https://www.gt-world-challenge-america.com//timthumb.php?w=800&src=%2Fimages%2Fgallery%2F2023%2F88%2F381%2F%2FSRO23_RA_4671__FL-Enhanced-NR-topaz-denoise-sharpen.jpg");
     background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 
     .nav_list {
         width: 100vw;
@@ -63,6 +65,7 @@
 
         .MuiCard-root {
             width: 20%;
+            min-width: 120px;
             background: linear-gradient(
                 90deg,
                 rgba(70, 45, 45, 1) 11%,
