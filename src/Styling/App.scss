@@ -63,15 +63,23 @@
         padding-top: 5%;
         gap: 5vw;
 
-        .MuiCard-root {
+        .nav_link {
             width: 20%;
+            border-radius: 10%;
             min-width: 120px;
             background: linear-gradient(
                 90deg,
                 rgba(70, 45, 45, 1) 11%,
                 rgba(255, 0, 0, 1) 100%
             );
+
             color: white;
+            font-size: 140%;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
